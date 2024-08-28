@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/lancelot
+KERNEL_PATH := $(DEVICE_PATH)-kernel
 
 # Inherit from mt6768-common
 -include device/xiaomi/mt6768-common/BoardConfigCommon.mk
@@ -22,7 +23,12 @@ ODM_MANIFEST_SKUS += \
 ODM_MANIFEST_GALAHAD_FILES := $(DEVICE_PATH)/manifest_galahad.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG := lancelot_defconfig
+TARGET_NO_KERNEL_OVERRIDE := true
+TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/Image.gz
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/headers
+BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
+BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
+BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE_DIR)/mt6768.dtb
 
 # Inherit the proprietary files
 include vendor/xiaomi/lancelot/BoardConfigVendor.mk
