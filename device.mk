@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/xiaomi/lancelot
+
 # Inherit from mt6768-common
 $(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 
@@ -39,6 +41,13 @@ PRODUCT_COPY_FILES += \
     $(RECOVERY_TS_FW_PATH)/nvt_dj_mp.bin:recovery/root/vendor/firmware/nvt_dj_mp.bin \
     $(RECOVERY_TS_FW_PATH)/nvt_tm_fw.bin:recovery/root/vendor/firmware/nvt_tm_fw.bin \
     $(RECOVERY_TS_FW_PATH)/nvt_tm_mp.bin:recovery/root/vendor/firmware/nvt_tm_mp.bin
+
+# Kernel 
+KERNEL_PATH := $(DEVICE_PATH)-kernel
+
+PRODUCT_COPY_FILES += \
+    $(KERNEL_PATH)/dtb/mt6768.dtb:dtb.img \
+    $(KERNEL_PATH)/Image.gz:kernel
 
 # NFC
 PRODUCT_PACKAGES += \
