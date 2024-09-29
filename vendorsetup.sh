@@ -9,3 +9,10 @@ git -C "frameworks/native" am <<<"$(curl -sL "https://github.com/ArrowOS/android
 
 # soong: Add vendor/lineage-priv/keys to allowlist
 git -C "build/soong" am <<<"$(curl -sL "https://github.com/orkunsdumps/pos_build_soong/commit/fe6926aff79729e58573c69988555b397bc2e711.patch")"
+
+# Builder opt.
+cd build/soong
+git fetch https://github.com/orkunsdumps/pos_build_soong thirteen
+git cherry-pick da165b5956771205873e527ba18f2bba32fc9815
+git cherry-pick da165b5956771205873e527ba18f2bba32fc9815..b01c8e1ba8e1c36cd755a398ba851da196fb2fd5
+cd -
