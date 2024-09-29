@@ -6,3 +6,6 @@ git -C "frameworks/av" am <<<"$(curl -sL "https://github.com/ArrowOS/android_fra
 
 # REThreaded: Use gen- and delete- textures on all render engines
 git -C "frameworks/native" am <<<"$(curl -sL "https://github.com/ArrowOS/android_frameworks_native/commit/1e483eea5cf3b4972939a313652aebac42a1561c.patch")"
+
+# soong: Add vendor/lineage-priv/keys to allowlist
+git -C "build/soong" am <<<"$(curl -sL "https://github.com/orkunsdumps/pos_build_soong/commit/fe6926aff79729e58573c69988555b397bc2e711.patch")"
