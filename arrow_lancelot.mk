@@ -15,9 +15,8 @@ $(call inherit-product, device/xiaomi/lancelot/device.mk)
 $(call inherit-product, vendor/arrow/config/common.mk)
 
 # ArrowOS Additional Flags
-DEVICE_MAINTAINER := orkunergun
-DEVICE_MAINTAINER_LINK := https://t.me/orkunergun
-TARGET_BOOT_ANIMATION_RES := 720
+ARROW_MAINTAINER := orkunergun
+TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_SUPPORTS_QUICK_TAP := false
 
